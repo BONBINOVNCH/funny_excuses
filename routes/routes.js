@@ -32,4 +32,23 @@ router.get("/all-exucess_and_situations", async (req, res) => {
     }
 });
 
+router.post("/exucesses/add", async (req, res) => {
+    try {
+        const { situation, excuseText, category, riskLevel } = req.body;
+
+        const excuse = new Excuse({
+            situation,
+            excuseText,
+            category,
+            riskLevel,
+        });
+
+        const savedExcuse = await excuse.save();
+
+        res.status(201).json(savedExcuse);
+    } catch (err) {
+        res.status(500).send("Server error");
+    }
+});
+
 module.exports = router;
