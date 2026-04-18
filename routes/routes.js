@@ -6,7 +6,7 @@ router.get("/exucesses", async (req, res) => {
     try {
         const excusses = await Excuse.find(
             {},
-            { excuseText: 1, category: 1, riskLevel: 1, _id: 0 },
+            { excuseText: 1, category: 1, riskLevel: 1, _id: 1 },
         );
         res.status(200).send(excusses);
     } catch (err) {
@@ -14,12 +14,9 @@ router.get("/exucesses", async (req, res) => {
     }
 });
 
-router.get("/exucesses", async (req, res) => {
+router.get("/situations", async (req, res) => {
     try {
-        const excusses = await Excuse.find(
-            {},
-            { excuseText: 1, category: 1, riskLevel: 1, _id: 0 },
-        );
+        const excusses = await Excuse.find({}, { situation: 1, _id: 1 });
         res.status(200).send(excusses);
     } catch (err) {
         res.status(500).send("Server error");
