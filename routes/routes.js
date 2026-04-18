@@ -4,10 +4,23 @@ const router = express.Router();
 
 router.get("/exucesses", async (req, res) => {
     try {
-        const excusses = await Excuse.find();
-        res.status(200).send({
-            message: "все ок",
-        });
+        const excusses = await Excuse.find(
+            {},
+            { excuseText: 1, category: 1, riskLevel: 1, _id: 0 },
+        );
+        res.status(200).send(excusses);
+    } catch (err) {
+        res.status(500).send("Server error");
+    }
+});
+
+router.get("/exucesses", async (req, res) => {
+    try {
+        const excusses = await Excuse.find(
+            {},
+            { excuseText: 1, category: 1, riskLevel: 1, _id: 0 },
+        );
+        res.status(200).send(excusses);
     } catch (err) {
         res.status(500).send("Server error");
     }
