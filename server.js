@@ -13,10 +13,6 @@ connectDB();
 const authRoutes = require("./routes/routes");
 app.use("/api", authRoutes);
 
-// app.get("/situations", (req, res) => {
-//     res.send("Hello World 2!");
-// });
-
 // app.get("/all-exucess_and_situations", (req, res) => {
 //     res.send("Hello World 3!");
 // });
