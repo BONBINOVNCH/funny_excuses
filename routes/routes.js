@@ -51,4 +51,14 @@ router.post("/exucesses/add", async (req, res) => {
     }
 });
 
+router.get("/find-excuse/:category/:riskLevel", async (req, res) => {
+    try {
+        const { category, riskLevel } = req.params;
+        const excuse = await Excuse.find({ category, riskLevel }, {});
+        res.status(200).send(excuse);
+    } catch (err) {
+        res.status(500).send("Server error");
+    }
+});
+
 module.exports = router;
