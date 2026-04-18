@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "swagger-ui": "^5.32.2",
+    "swagger-ui-dist": "^5.32.4"
   }
 }
